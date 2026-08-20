@@ -1,9 +1,9 @@
-# Playwright With Python Internet Banking Test Automation Project
+# Playwright With Python Human Resource Management Test Automation Project
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-Automation-green.svg)](https://playwright.dev/python/)
 [![Framework](https://img.shields.io/badge/Design%20Pattern-Page%20Object%20Model-orange.svg)]()
 
-An automated end-to-end regression testing framework built with **Python**, **Playwright**, **Pytest**, and the Page Object Model (POM) design pattern to validate user workflows including authentication, registration, and core application functionality.
+An automated end-to-end regression testing framework built with **Python**, **Playwright**, **Pytest**, and the Page Object Model (POM) design pattern to validate key OrangeHRM enterprise workflows including authentication, employee management (PIM), and dashboard operations.
 
 ---
 
@@ -20,21 +20,22 @@ An automated end-to-end regression testing framework built with **Python**, **Pl
 ## Project Structure
 
 ```text
-PARASOFT-PROJECT/
+ORANGEHRM-PROJECT/
 │
 ├── pages/                  # Page Object Model classes (Locators & Actions)
-│   ├── login_page.py       # Page objects for user login flow
-│   └── register_page.py    # Page objects for user registration flow
+│   ├── login_page.py       # Page objects for user authentication workflows
+│   ├── dashboard_page.py   # Page objects for dashboard navigation & widgets
+│   └── pim_page.py         # Page objects for Employee Management (PIM)
 │
-├── reports/                # Test execution reports and artifact logs
+├── reports/                # Test execution reports, failure screenshots, & logs
 │
 ├── tests/                  # Test suites and execution scripts
-│   ├── test_login.py       # Test cases for authentication
-│   ├── test_register.py    # Test cases for registration
-│   └── test_sample.py      # Basic verification and smoke test cases
+│   ├── test_login.py       # Test cases for authentication & access control
+│   ├── test_pim.py         # Test cases for adding, editing, and searching employees
+│   └── test_dashboard.py   # Verification for dashboard layout and shortcuts
 │
-├── config.py               # Global configurations, environment variables, & base URLs
+├── config.py               # Global configurations, credentials, & base URLs
 ├── conftest.py             # Pytest fixtures, driver management, and report hooks
-└── main.py                 # Custom test runner / execution entry point
+
 ```
 
