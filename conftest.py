@@ -1,7 +1,14 @@
 from playwright.sync_api import sync_playwright
 import pytest
+from dotenv import load_dotenv
 from pages.login_page import LoginPage
+from config import Config
 import os
+
+
+@pytest.fixture(scope='session', autouse=True)
+def load_env():
+    load_dotenv()
 
 
 @pytest.fixture(scope='session')
@@ -17,7 +24,10 @@ def browser():
 def logged_in_page(page):
     login_page = LoginPage(page)
 
+    page.set_default_navigation_timeout(90000)
+
     page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
+    
     login_page.login(
         os.getenv("USERNAME"),
         os.getenv("PASSWORD")
